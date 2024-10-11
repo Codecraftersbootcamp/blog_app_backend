@@ -71,8 +71,10 @@ route.post("/login", async (req, res) => {
       [email]
     );
 
-    // if does not user exist, send an error response
-    if (usersResult[0]) {
+    // if user does not  exist, send an error response
+    if (!usersResult[0]) {
+      console.log(usersResult[0]);
+
       res.json({
         error: `User of email ${email} does not exist`,
       });
